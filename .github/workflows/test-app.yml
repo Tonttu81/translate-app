@@ -17,7 +17,19 @@ jobs:
       - name: Run containers
         run: |
           docker compose -f docker-compose.dev.yml up --build -d
+          sleep 5
+
+      - name: Check container status
+        run: |
+          docker compose -f docker-compose.dev.yml ps
+
+      - name: Container logs
+        run: docker compose -f docker-compose.dev.yml logs
       
       - name: Test backend health
         run: |
-          curl http://localhost:8080/api/status      
+          curl http://localhost:8080/api/status
+
+      - name: Stop containers
+        run: |
+          docker compose -f docker-compose.dev.yml down
