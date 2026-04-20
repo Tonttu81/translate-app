@@ -15,7 +15,7 @@ def health():
     return {'status': 'Healthy'}
 
 @app.post('/api/translate')
-def post_message():
+def translate():
     data = request.get_json()
 
     if 'text' not in data or data['text'] == '':
@@ -61,6 +61,7 @@ def post_message():
         }
 
     response_json = r.json()
+    print(response_json)
 
     response = {
         'status': 'success',
