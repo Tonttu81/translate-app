@@ -63,6 +63,8 @@ def translate():
     response_json = r.json()
     print(response_json)
 
+    #test
+
     response = {
         'status': 'success',
         'translation': response_json[0]['translations'][0]['text']
