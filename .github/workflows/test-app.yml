@@ -1,8 +1,8 @@
 name: Run backend tests
 
 on:
-  push:
-    branches: [ main ]
+  pull-request:
+    types: [opened, edited]
 
 jobs:
   test:
